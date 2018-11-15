@@ -12,7 +12,9 @@ string ReadOnefaceColor();
 void DrawandCut(Mat & image);
 /*收集颜色*/
 void CollectColor(Mat image,Mat &query);
-
+/*检查颜色是否成功读取*/
+bool CheckColor(string color);
+/*读取并检查图像*/
 string ReadColor() {
 	string color;
 	/*重新读入*/
@@ -22,11 +24,12 @@ string ReadColor() {
 		for (size_t i = 0; i < 100; i++) {
 			color += ReadOnefaceColor();
 		}
-		/*判断是否重新读入图像*/
+		/*判断颜色是否正确读入*/
 		flag = 0;
 	}
 	return color;
 }
+
 string ReadOnefaceColor() {
 	string color;
 	Mat image_read1,image_read2;
@@ -90,4 +93,29 @@ void CollectColor(Mat image, Mat &query) {
 	Mat query2(9, 6, CV_32FC1, rawdata);
 	query = query2;
 }
+bool CheckColor(string color) {
+	int colnum[6];
+	/*颜色总数不对*/
+	if (color.length != 54) {
+		return false;
+	}
+	for (size_t i = 0; i < color.length; i++){
+		switch (color[i]){
+		case 'W': colnum[0]++; break;
+		case 'Y': colnum[1]++; break;
+		case 'O': colnum[2]++; break;
+		case 'R': colnum[3]++; break;
+		case 'B': colnum[4]++; break;
+		case 'G': colnum[5]++; break;
+		default:
+			break;
+		}
+	}
+	/*每个颜色分量不对*/
+	for (size_t i = 0; i < 6; i++){
+		if (colnum[i] != 9)
+			return false;
+	}
 
+
+}
