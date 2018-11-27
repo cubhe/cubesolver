@@ -5,6 +5,12 @@
 所以准备把之前的代码重新写一遍。然后加强一些地方，就酱。希望看到的同学能够多多指正我的错误也十分欢迎和我交流。我的邮箱是herenzhie@gmail.com
 因为大三在准备保研天天忙于刷绩点所以可能会更新的有点慢。但我会坚持写完的。
 
+## 11.27更新
+
+i first thought this would be the theme of the 2018 compitition. But i find that this year the compitition theme is the same as last year. SO cinsidering the fairness of the compitition， i delete some code. 
+
+sorry :(
+
 ## 11.13更新
 目前正在写算法部分
 
